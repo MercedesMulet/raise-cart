@@ -1,0 +1,20 @@
+.nav {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .nav-ul {
+        display: flex;
+        list-style: none;
+    
+        .nav-li {
+            .a {
+                color: $black-raise;
+                text-decoration: none;
+                padding: 12px 24px;
+            }
+        }
+    }
+}
