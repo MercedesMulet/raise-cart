@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600&display=swap');
 @import 'variables.scss';
 @import 'general.scss';
-@import '../components/navBar/navBar.scss'
+@import '../components/NavBar/navBar.scss';
+@import '../components/CartWidget/cartWidget.scss';
+@import '../components/ItemListContainer/itemListContainer.scss'
