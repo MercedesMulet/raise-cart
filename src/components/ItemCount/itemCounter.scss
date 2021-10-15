@@ -1,0 +1,37 @@
+.counter {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 2rem;
+
+    span {
+        font-size: 1.5rem;
+        padding: 0 1rem;
+        width: 2rem;
+        text-align: center;
+    }
+
+    button {
+        width: 1.8rem;
+        height: 1.8rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 1rem;
+        background-color: $bg-color;
+        border: 1px $green-raise solid;
+        color: $green-raise;
+        p {
+            font-size: 1.5rem;
+            padding: 0;
+            margin: 0;
+        }
+        .minus-icon {
+            padding-bottom: .15rem;
+        }
+    }
+}
+
+h4 {
+    margin-top: 1rem;
+}

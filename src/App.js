@@ -5,8 +5,8 @@ import { Greeting } from './components/ItemListContainer/ItemListContainer';
 function App() {
   return (
     <div className="App">
-        <NavBar />
-        <Greeting user="José"/>
+      <NavBar />
+      <Greeting user="José" />
     </div>
   );
 }
