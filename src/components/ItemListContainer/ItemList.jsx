@@ -9,7 +9,7 @@ export const ItemList = ({ product }) => {
           <h3>
             {product.categoria} {product.referencia}
           </h3>
-          <p>Para {product.tipoLlaves}</p>
+          <p>{product.tipoLlaves}</p>
         </div>
         <span className="item-list-price">${product.precio}</span>
       </div>
