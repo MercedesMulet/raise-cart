@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import Products from '../../Products.json';
 import { ItemList } from '../ItemListContainer/ItemList';
 
-export const Greeting = (props) => {
+export const ItemListContainer = (props) => {
   const [products, setProducts] = useState([]);
 
   const getData = (data) =>
@@ -25,12 +25,13 @@ export const Greeting = (props) => {
   return (
     <>
       <div className="header-list-container">
-        <h1>¡Bienvenido {props.user} a la tienda de Raise México!</h1>
+        <h1>¡Bienvenido a la tienda de Raise México!</h1>
       </div>
-
       <div className="item-list-container">
         {products.length
-          ? products.map((product) => <ItemList product={product} />)
+          ? products.map((product) => (
+              <ItemList product={product} key={product.codigoRaise} />
+            ))
           : 'Cargando productos...'}
       </div>
     </>
