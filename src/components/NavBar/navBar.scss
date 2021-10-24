@@ -1,29 +1,89 @@
 .nav {
-    width: 80%;
-    margin: auto;
-    margin-top: 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-
+    width: 90%;
+    margin: 1rem auto;
+    
     .container-logo {
-
         img {
             width: 120px;
         }
     }
 
-    .nav-ul {
-        display: flex;
-        list-style: none;
-    
-        .nav-li {
-            .a {
-                color: $black-raise;
-                text-decoration: none;
-                padding: 12px 32px;
-                font-weight: 400;
+    .navigation {
+        display: none;
+
+        @media only screen and (min-width : 1080px) {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-ul {
+            display: flex;
+            align-items: center;
+            list-style: none;
+        
+            .nav-li {
+                .a {
+                    color: $black-raise;
+                    text-decoration: none;
+                    padding: 12px 32px;
+                    font-weight: 400;
+                }
             }
         }
     }
+
+    .mobile-navigation {
+        display: flex;
+        align-items: center;
+            
+        .bars-icon {
+            position: absolute;
+            right: 5%;
+            font-size: 2rem;
+            cursor: pointer;
+            color: $black-raise;
+        }
+
+        .close-icon {
+            position: absolute;
+            right: 6%;
+            font-size: 2rem;
+            cursor: pointer;
+            color: $black-raise;
+        }
+
+        .nav-ul {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            list-style: none;
+            background-color: $bg-color;
+            top: 4rem;
+            left: 0;
+            display: block;
+            transition: all .5s;
+            padding: 10%;
+            
+            .nav-li {
+                padding: 1rem 0 2rem;
+                text-transform: uppercase;
+
+                .a {
+                    color: $black-raise;
+                    text-decoration: none;
+                    font-size: 1.8rem;
+                    font-weight: 400;
+                }
+            }
+        }
+        
+        @media only screen and (min-width : 1080px) {
+            display: none;
+        }
+    }
 }
+
+

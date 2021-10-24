@@ -1,8 +1,8 @@
-import { ItemCount } from '../ItemCount/ItemCount';
+import { ItemCount } from './ItemCount/ItemCount';
 
-export const ItemList = ({ product }) => {
+export const Item = ({ product }) => {
   return (
-    <div className="item-list">
+    <div className="item">
       <img src={product.img} alt="" />
       <div className="item-list-description">
         <div className="item-list-content">

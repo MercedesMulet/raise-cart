@@ -1,4 +1,5 @@
-import { CartWidget } from '../CartWidget/CartWidget';
+import { Navigation } from './Navigation';
+import { MobileNavigation } from './MobileNavigation';
 
 export const NavBar = () => {
   return (
@@ -7,30 +8,8 @@ export const NavBar = () => {
         <div className="container-logo">
           <img src="images/LogoRaiseVerde.png" alt="Logo Raise" />
         </div>
-        <ul className="nav-ul">
-          <li className="nav-li">
-            <a href="/#" className="a">
-              Inicio
-            </a>
-          </li>
-          <li className="nav-li">
-            <a href="/#" className="a">
-              Tienda
-            </a>
-          </li>
-          <li className="nav-li">
-            <a href="/#" className="a">
-              Cómo comprar
-            </a>
-          </li>
-          <li className="nav-li">
-            <a href="/#" className="a">
-              Contacto
-            </a>
-          </li>
-
-          <CartWidget />
-        </ul>
+        <Navigation />
+        <MobileNavigation />
       </nav>
     </>
   );
