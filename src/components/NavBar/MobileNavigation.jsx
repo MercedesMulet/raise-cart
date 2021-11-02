@@ -23,10 +23,12 @@ export const MobileNavigation = () => {
     />
   );
 
+  const closeMobileMenu = () => setOpen(false);
+
   return (
     <nav className="mobile-navigation">
       {open ? closeIcon : barsIcon}
-      {open && <NavLinks />}
+      {open && <NavLinks isMobile={true} closeMobileMenu={closeMobileMenu} />}
     </nav>
   );
 };
