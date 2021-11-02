@@ -13,8 +13,9 @@ export const Item = ({ product }) => {
         </div>
         <span className="item-list-price">${product.precio}</span>
       </div>
-      <button className="item-list-btn">Agregar al carrito</button>
       <ItemCount initial={1} stock={5} />
+      <button className="item-list-btn">Agregar al carrito</button>
+      <button className="item-list-btn">Ver detalles</button>
     </div>
   );
 };
