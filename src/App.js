@@ -1,13 +1,18 @@
 import './scss/app.scss';
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { NavBar } from './components/NavBar/NavBar';
 import { ItemListContainer } from './components/ItemListContainer/ItemListContainer';
 
 function App() {
   return (
-    <div className="App">
-      <NavBar />
-      <ItemListContainer />
-    </div>
+    <BrowserRouter>
+    <NavBar />
+    <Switch>
+      <Route exact path="/">
+        <ItemListContainer />
+      </Route>
+    </Switch>
+  </BrowserRouter>
   );
 }
 
