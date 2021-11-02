@@ -1,6 +1,9 @@
+import { Button } from '../../Button/Button';
 import { ItemCount } from './ItemCount/ItemCount';
 
 export const Item = ({ product }) => {
+  console.log({ product });
+
   return (
     <div className="item">
       <img src={product.img} alt="" />
@@ -14,8 +17,8 @@ export const Item = ({ product }) => {
         <span className="item-list-price">${product.precio}</span>
       </div>
       <ItemCount initial={1} stock={5} />
-      <button className="item-list-btn">Agregar al carrito</button>
-      <button className="item-list-btn">Ver detalles</button>
+      <Button buttonStyle="btn-primary-solid">Agregar al carrito</Button>
+      <Button buttonStyle="btn-primary-outline">Ver detalles</Button>
     </div>
   );
 };

@@ -1,0 +1,26 @@
+.btn-primary {
+    width: 250px;
+    height: 48px;
+    margin: 4px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 700;
+    transition: all 0.5s ease-out;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.btn-primary-solid {
+    background: $green-raise;
+    border: none;
+    color: $bg-color;
+}
+
+.btn-primary-outline {
+    background: transparent;
+    border: 1px solid $green-raise;
+    color: $green-raise;
+}
