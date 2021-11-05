@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import Products from '../../Products.json';
-import { ItemList } from './ItemList/ItemList';
+import { ItemList } from '../ItemListContainer/ItemList/ItemList';
 
 export const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
@@ -11,7 +11,7 @@ export const ItemListContainer = () => {
         if (data) {
           resolve(data);
         } else {
-          reject('No se encontraron productos');
+          reject('No se encontraron productos.');
         }
       }, 2000);
     });

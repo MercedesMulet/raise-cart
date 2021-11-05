@@ -1,9 +1,8 @@
+import { Link } from 'react-router-dom';
 import { Button } from '../../Button/Button';
 import { ItemCount } from './ItemCount/ItemCount';
 
 export const Item = ({ product }) => {
-  console.log({ product });
-
   return (
     <div className="item">
       <img src={product.img} alt="" />
@@ -18,7 +17,9 @@ export const Item = ({ product }) => {
       </div>
       <ItemCount initial={1} stock={5} />
       <Button buttonStyle="btn-primary-solid">Agregar al carrito</Button>
-      <Button buttonStyle="btn-primary-outline">Ver detalles</Button>
+      <Link to={`/item/${product.referencia}`}>
+        <Button buttonStyle="btn-primary-outline">Ver detalles</Button>
+      </Link>
     </div>
   );
 };
