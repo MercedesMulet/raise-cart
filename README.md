@@ -10,7 +10,7 @@
 
 ![App Running](https://github.com/MercedesMulet/raise-cart/blob/main/screenshots/Animation.gif)
 
-## Construído con
+## Built with
 
 - ReactJS
 - JavaScript
@@ -90,7 +90,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-## Autor
+## Author
 
 **Mercedes Mulet**
 
