@@ -8,7 +8,7 @@
 
 ## Screenshot
 
-<img src="screenshots/HomePreview.png" height="400" alt="Home Page"/>
+![App Running](https://github.com/MercedesMulet/raise-cart/blob/main/screenshots/Animation.gif)
 
 ## Construído con
 
