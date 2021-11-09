@@ -8,7 +8,7 @@ export const ItemDetail = ({ item }) => {
       {
         item.map(prod => {
           return (
-            <div className="item-detail">
+            <div className="item-detail" key={prod.codigoRaise}> 
               <div className="img-detail">
                 <img src={prod.img} alt="" />
               </div>

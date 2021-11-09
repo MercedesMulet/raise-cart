@@ -19,11 +19,6 @@ export const ItemCount = ({ stock, initial, onAdd }) => {
       setCount(count - 1);
     }
   };
-
-  const handleClick = (e) => {
-    e.preventDefault();
-    onAdd(count);
-  }
  
   return (
     <>

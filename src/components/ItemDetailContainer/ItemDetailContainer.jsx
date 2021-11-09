@@ -6,7 +6,6 @@ import Products from '../../Products.json';
 export const ItemDetailContainer = () => {
   const [item, setItem] = useState('');
   const { referencia } = useParams();
-  /* const referencia = parseInt(id); */
 
   const getItem = (data) =>
     new Promise((resolve, reject) => {
@@ -22,7 +21,6 @@ export const ItemDetailContainer = () => {
   useEffect(() => {
     getItem(Products)
       .then((res) => {
-        /* referencia ? setItem(res.find((item) => item.id === referencia)) : setItem(Products); */
         const filterItem = res.filter(
           (product) => product.referencia === referencia
         );
