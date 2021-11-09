@@ -4,8 +4,8 @@
 @import '../components/NavBar/navBar.scss';
 @import '../components/NavBar/CartWidget/cartWidget.scss';
 @import '../components/ItemListContainer/itemListContainer.scss';
-@import '../components/ItemListContainer/Item/ItemCount/itemCounter.scss';
 @import '../components/ItemDetailContainer/itemDetailContainer.scss';
 
 /* UI components */
+@import '../components/ItemCount/itemCounter.scss';
 @import '../components/Button/button.scss'

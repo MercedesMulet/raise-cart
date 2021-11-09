@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { Button } from '../../Button/Button';
-import { ItemCount } from './ItemCount/ItemCount';
 
 export const Item = ({ product }) => {
   return (
@@ -15,8 +14,6 @@ export const Item = ({ product }) => {
         </div>
         <span className="item-list-price">${product.precio}</span>
       </div>
-      <ItemCount initial={1} stock={5} />
-      <Button buttonStyle="btn-primary-solid">Agregar al carrito</Button>
       <Link to={`/item/${product.referencia}`}>
         <Button buttonStyle="btn-primary-outline">Ver detalles</Button>
       </Link>

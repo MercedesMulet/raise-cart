@@ -4,9 +4,9 @@ import { ItemDetail } from './ItemDetail/ItemDetail';
 import Products from '../../Products.json';
 
 export const ItemDetailContainer = () => {
-  const [selectedItem, setSelectedItem] = useState('');
-  const { id } = useParams();
-  const itemId = parseInt(id);
+  const [item, setItem] = useState('');
+  const { referencia } = useParams();
+  /* const referencia = parseInt(id); */
 
   const getItem = (data) =>
     new Promise((resolve, reject) => {
@@ -16,24 +16,25 @@ export const ItemDetailContainer = () => {
         } else {
           reject('No existen productos que coincidan con su selección.');
         }
-      }, 2000);
+      }, 1000);
     });
 
   useEffect(() => {
     getItem(Products)
       .then((res) => {
-        /* const filterItem = Products.find(
-          (product) => product.codigoRaise === itemId
-        ); */
-        setSelectedItem(res[0]);
+        /* referencia ? setItem(res.find((item) => item.id === referencia)) : setItem(Products); */
+        const filterItem = res.filter(
+          (product) => product.referencia === referencia
+        );
+        setItem(filterItem);
       })
       .catch((err) => console.log(err));
-  }, [itemId]);
+  }, [referencia]);
 
   return (
     <div className="item-detail-container">
       <div className="item-detail">
-        {selectedItem ? <ItemDetail item={selectedItem} /> : 'Cargando...'}
+        {item ? <ItemDetail item={item} /> : 'Cargando...'}
       </div>
     </div>
   );

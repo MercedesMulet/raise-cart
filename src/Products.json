@@ -6,6 +6,7 @@
     "material": "HSS Coating",
     "modeloMaquina": "Truper",
     "precio": 1100,
+    "stock": 5,
     "img": "https://drive.google.com/uc?id=1EfqElkTbZVkxpBtSw4HzA5ongUB6iqrT"
 },
 {
@@ -16,6 +17,7 @@
     "material": "HSS Coating",
     "modeloMaquina": "Defu",
     "precio": 1000,
+    "stock": 5,
     "img": "https://drive.google.com/uc?id=1Bs5kbgTQcqPvuNVUUBYnqNjdBjQty3H3"
 },
 {
@@ -26,6 +28,7 @@
     "material": "HSS Coating",
     "modeloMaquina": "Ilco 045",
     "precio": 1100,
+    "stock": 5,
     "img":"https://drive.google.com/uc?id=1KKq0AUm1_5_iKY-5Jv9kLRxk7AjLqHcs"
 },
 {
@@ -36,6 +39,7 @@
     "material": "Carburo de Tungsteno",
     "modeloMaquina": "Truper",
     "precio": 300,
+    "stock": 5,
     "img": "https://drive.google.com/uc?id=1CbWpoFmjwkrc8UW5qaJpG9TiNsD0yyzq"
 },
 {
@@ -46,6 +50,7 @@
     "material": "Carburo de Tungsteno",
     "modeloMaquina": "Truper",
     "precio": 300,
+    "stock": 5,
     "img": "https://drive.google.com/uc?id=1rHMfSb-lRom_3h5H3i1Ea3RbNMkiV7Si"
 },
 {
@@ -56,6 +61,7 @@
     "material": "Carburo de Tungsteno",
     "modeloMaquina": "Truper",
     "precio": 300,
+    "stock": 5,
     "img": "https://drive.google.com/uc?id=17CApcYeoZzpA1MDsVxkvnAxaTN7Dhjgv"
 },
 {
@@ -66,6 +72,7 @@
     "material": "Carburo de Tungsteno",
     "modeloMaquina": "Truper",
     "precio": 300,
+    "stock": 5,
     "img": "https://drive.google.com/uc?id=1t409674qjMZkWHDP93f1-xt4YEzvzIR4"
 },
 {
@@ -76,6 +83,7 @@
     "material": "Carburo de Tungsteno",
     "modeloMaquina": "Truper",
     "precio": 300,
+    "stock": 5,
     "img": "https://drive.google.com/uc?id=1iKS1aWcsEB4ZzNsPPuGJvGx4GGYMQ9Sp"
 },
 {
@@ -86,6 +94,7 @@
     "material": "Carburo de Tungsteno",
     "modeloMaquina": "Truper",
     "precio": 300,
+    "stock": 5,
     "img": "https://drive.google.com/uc?id=1t409674qjMZkWHDP93f1-xt4YEzvzIR4"
 },
 {
@@ -96,6 +105,7 @@
     "material": "Carburo de Tungsteno",
     "modeloMaquina": "Truper",
     "precio": 250,
+    "stock": 5,
     "img": "https://drive.google.com/uc?id=1iNhKkXX2PzEf6FljFTvlm-kDuZw8veTV"
 },
 {
@@ -106,6 +116,7 @@
     "material": "Carburo de Tungsteno",
     "modeloMaquina": "Truper",
     "precio": 250,
+    "stock": 5,
     "img": "https://drive.google.com/uc?id=1Vv9YYH8iVmF4mQ_1TsoCfQIqMx7I9Vyj"
 },
 {
@@ -116,6 +127,7 @@
     "material": "Carburo de Tungsteno",
     "modeloMaquina": "Truper",
     "precio": 250,
+    "stock": 5,
     "img": "https://drive.google.com/uc?id=1HHbJ73f-rA5hcsZYcHkOImdqVlf4E18Y"
 },
 {
@@ -126,6 +138,7 @@
     "material": "Carburo de Tungsteno",
     "modeloMaquina": "Truper",
     "precio": 250,
+    "stock": 5,
     "img": "https://drive.google.com/uc?id=1ch1fBKg_bLbSBc2qWD2wJr1QmB8FKiTQ"
 },
 {
@@ -136,6 +149,7 @@
     "material": "Carburo de Tungsteno",
     "modeloMaquina": "Truper",
     "precio": 250,
+    "stock": 5,
     "img": "https://drive.google.com/uc?id=1yvQiyz_V2Yn7TCqYeJeaUwZAq6bU9CBU"
 },
 {
@@ -146,6 +160,7 @@
     "material": "Carburo de Tungsteno",
     "modeloMaquina": "Truper",
     "precio": 250,
+    "stock": 5,
     "img": "https://drive.google.com/uc?id=1bBQmeqrK12mOUOAbz6U9OK5e4P0pfpwD"
 }
 ]
