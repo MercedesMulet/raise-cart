@@ -1,5 +1,8 @@
 import { Button } from '../../Button/Button';
 import { ItemCount } from '../../ItemCount/ItemCount';
+import { getFirestore } from '@firebase/firestore';
+import { doc, getDoc } from '../../../firebase/index'
+import { useEffect } from 'react';
 
 export const ItemDetail = ({ item }) => {
 
