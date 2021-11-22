@@ -1,13 +1,21 @@
-import { useState } from 'react';
-import { Button } from '../Button/Button'
+import { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Button } from '../Button/Button';
+import { CartContext } from '../../contexts/cart/Cart.Context';
 
-export const ItemCount = ({ stock, initial, onAdd }) => {
+export const ItemCount = ({ item, stock, initial }) => {
   const [count, setCount] = useState(initial);
+  const [showCount, setShowCount] = useState(false);
+
+  const hideCount = () => {
+    setShowCount(true);
+  };
 
   const increaseCount = (e) => {
     e.preventDefault();
     if (count < stock) {
-      setCount(count + 1)
+      setCount(count + 1);
+      hideCount();
     } else {
       alert('Alcanzaste el máximo stock disponible.')
     }
@@ -19,10 +27,11 @@ export const ItemCount = ({ stock, initial, onAdd }) => {
       setCount(count - 1);
     }
   };
- 
+
   return (
     <>
-      <div className="counter">
+      
+      {showCount === false ? <div className="counter">
         <button onClick={decreaseCount} id='decrease'>
           <p className="minus-icon">-</p>
         </button>
@@ -30,7 +39,8 @@ export const ItemCount = ({ stock, initial, onAdd }) => {
         <button onClick={increaseCount} id='increase'>
           <p>+</p>
         </button>
-      </div>
+      </div> :  <Link to='/cart'> Ir al carrito </Link> }
     </>
   );
 };
+

@@ -2,12 +2,15 @@ import { Button } from '../../Button/Button';
 import { ItemCount } from '../../ItemCount/ItemCount';
 import { getFirestore } from '@firebase/firestore';
 import { doc, getDoc } from '../../../firebase/index';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export const ItemDetail = ({ item }) => {
+  
+
   return (
     <>
-      {item.map((prod) => {
+      {item?.map((prod) => {
         return (
           <div className="item-detail" key={prod.codigoRaise}>
             <div className="img-detail">
@@ -26,7 +29,7 @@ export const ItemDetail = ({ item }) => {
               <div className="cta-detail">
                 <Button buttonStyle="btn-primary-solid">Comprar</Button>
               </div>
-              <ItemCount initial={0} stock={prod.stock} />
+              <ItemCount initial={0} stock={prod.stock}/>
             </div>
           </div>
         );
