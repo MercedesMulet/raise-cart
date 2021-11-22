@@ -1,7 +1,6 @@
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../Button/Button';
-import { CartContext } from '../../contexts/cart/Cart.Context';
 
 export const ItemCount = ({ item, stock, initial }) => {
   const [count, setCount] = useState(initial);
@@ -30,7 +29,6 @@ export const ItemCount = ({ item, stock, initial }) => {
 
   return (
     <>
-      
       {showCount === false ? <div className="counter">
         <button onClick={decreaseCount} id='decrease'>
           <p className="minus-icon">-</p>
@@ -39,7 +37,7 @@ export const ItemCount = ({ item, stock, initial }) => {
         <button onClick={increaseCount} id='increase'>
           <p>+</p>
         </button>
-      </div> :  <Link to='/cart'> Ir al carrito </Link> }
+      </div> :  <Link to='/cart'><Button> Ir al carrito </Button></Link> }
     </>
   );
 };

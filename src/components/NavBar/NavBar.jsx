@@ -8,7 +8,7 @@ export const NavBar = () => {
       <nav className="nav">
         <div className="container-logo">
           <Link to='/'>
-          <img src="images/LogoRaiseVerde.png" alt="Logo Raise" />
+          <img src="https://i.imgur.com/m6SVm6h.png" alt="Logo Raise" />
           </Link>
         </div>
         <Navigation />

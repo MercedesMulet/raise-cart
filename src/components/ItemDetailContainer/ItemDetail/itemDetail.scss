@@ -2,8 +2,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    margin: 0;
-    padding: 3rem 0;
+    background-color: white;
 
     .img-detail {
         display: flex;
@@ -22,14 +21,19 @@
     }
 
     .content-detail {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
         width: 30rem;
+
 
         .info-detail {
             margin-bottom: 3rem;
 
             .title-detail {
                 font-size: 2.5rem;
-                margin-bottom: 2rem;
+                margin: 0 0 2rem;
             }
     
             p {
@@ -41,12 +45,6 @@
                 font-size: 2rem;
                 font-weight: 600;
             }
-        }
-
-        .cta-detail {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
         }
     }
 }

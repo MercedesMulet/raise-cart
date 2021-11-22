@@ -13,7 +13,7 @@ export const ItemListContainer = () => {
         } else {
           reject('No se encontraron productos.');
         }
-      }, 2000);
+      }, 1000);
     });
 
   useEffect(() => {

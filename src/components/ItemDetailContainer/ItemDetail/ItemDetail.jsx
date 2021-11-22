@@ -1,12 +1,8 @@
-import { Button } from '../../Button/Button';
 import { ItemCount } from '../../ItemCount/ItemCount';
 import { getFirestore } from '@firebase/firestore';
 import { doc, getDoc } from '../../../firebase/index';
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 
 export const ItemDetail = ({ item }) => {
-  
 
   return (
     <>
@@ -27,9 +23,8 @@ export const ItemDetail = ({ item }) => {
                 <span className="precio-detail">${prod.precio}</span>
               </div>
               <div className="cta-detail">
-                <Button buttonStyle="btn-primary-solid">Comprar</Button>
+                <ItemCount initial={0} stock={prod.stock}/>
               </div>
-              <ItemCount initial={0} stock={prod.stock}/>
             </div>
           </div>
         );
