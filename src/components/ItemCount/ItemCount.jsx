@@ -7,7 +7,7 @@ export const ItemCount = ({ item, stock, initial }) => {
   const [showCount, setShowCount] = useState(false);
 
   const hideCount = () => {
-    setShowCount(true);
+    setShowCount(!showCount);
   };
 
   const increaseCount = (e) => {
@@ -16,7 +16,7 @@ export const ItemCount = ({ item, stock, initial }) => {
       setCount(count + 1);
       hideCount();
     } else {
-      alert('Alcanzaste el máximo stock disponible.')
+      alert('Alcanzaste el máximo stock disponible.');
     }
   };
 
@@ -29,16 +29,21 @@ export const ItemCount = ({ item, stock, initial }) => {
 
   return (
     <>
-      {showCount === false ? <div className="counter">
-        <button onClick={decreaseCount} id='decrease'>
-          <p className="minus-icon">-</p>
-        </button>
-        <span>{count}</span>
-        <button onClick={increaseCount} id='increase'>
-          <p>+</p>
-        </button>
-      </div> :  <Link to='/cart'><Button> Ir al carrito </Button></Link> }
+      {showCount === false ? (
+        <div className="counter">
+          <button onClick={decreaseCount} id="decrease">
+            <p className="minus-icon">-</p>
+          </button>
+          <span>{count}</span>
+          <button onClick={increaseCount} id="increase">
+            <p>+</p>
+          </button>
+        </div>
+      ) : (
+        <Link to="/cart">
+          <Button> Ir al carrito </Button>
+        </Link>
+      )}
     </>
   );
 };
-

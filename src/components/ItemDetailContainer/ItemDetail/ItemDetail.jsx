@@ -3,7 +3,6 @@ import { getFirestore } from '@firebase/firestore';
 import { doc, getDoc } from '../../../firebase/index';
 
 export const ItemDetail = ({ item }) => {
-
   return (
     <>
       {item?.map((prod) => {
@@ -12,6 +11,7 @@ export const ItemDetail = ({ item }) => {
             <div className="img-detail">
               <img src={prod.img} alt="" />
             </div>
+            <div className="line"></div>
             <div className="content-detail">
               <div className="info-detail">
                 <h2 className="title-detail">
@@ -23,7 +23,7 @@ export const ItemDetail = ({ item }) => {
                 <span className="precio-detail">${prod.precio}</span>
               </div>
               <div className="cta-detail">
-                <ItemCount initial={0} stock={prod.stock}/>
+                <ItemCount initial={0} stock={prod.stock} />
               </div>
             </div>
           </div>

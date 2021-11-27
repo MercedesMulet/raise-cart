@@ -1,1 +1,6 @@
-@import './ItemDetail/itemDetail.scss'
+@import './ItemDetail/itemDetail.scss';
+
+.item-detail-container {
+    margin: 5rem auto;
+    width: 80vw;
+}
