@@ -1,11 +1,17 @@
-import React from 'react';
-
+import { useContext } from 'react';
+import { UseCart } from '../../contexts/cart/CartContext';
+import { CartProvider } from '../../contexts/cart/CartContext';
 
 export const CartContainer = () => {
-    
-    return (
-        <div>
-            <h3>Aqui va a estar el carrito</h3>
-        </div>
-    )
-}
+  const { cart } = UseCart();
+
+  console.log(cart);
+
+  return (
+    <CartProvider>
+      <div>
+        <h3>Aqui va a estar el carrito</h3>
+      </div>
+    </CartProvider>
+  );
+};

@@ -2,21 +2,21 @@ import { createContext, useContext, useState } from 'react';
 
 const CartContext = createContext();
 
-export const useCart = () => useContext(CartContext);
+export const UseCart = () => useContext(CartContext);
 
 export function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
+  console.log(cart);
 
   const addItem = (item, quantity) => {
     if (quantity >= 1 || quantity === -1) {
       const product = {
-        name: item.name,
-        price: item.price,
+        name: item.categoria,
+        price: item.precio,
         quantity: quantity,
-        id: item.id,
-        commercialName: item.commercialName,
+        id: item.referencia,
         img: item.img,
-        description: item.description,
+        material: item.material,
         stock: item.stock,
       };
 
@@ -57,7 +57,7 @@ export function CartProvider({ children }) {
     setCart([]);
   };
 
-  console.log(cart);
+  console.log(UseCart);
 
   return (
     <CartContext.Provider
