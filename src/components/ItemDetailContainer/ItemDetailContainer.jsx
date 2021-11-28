@@ -24,7 +24,7 @@ export const ItemDetailContainer = () => {
         const filterItem = res.filter(
           (product) => product.referencia === referencia
         );
-        setItem(filterItem);
+        setItem(filterItem.shift());
       })
       .catch((err) => console.log(err));
   }, [referencia]);

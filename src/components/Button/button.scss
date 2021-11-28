@@ -24,3 +24,17 @@
     border: 1px solid $green-raise;
     color: $green-raise;
 }
+
+.btn-delete-outline {
+    background: transparent;
+    border: 1px solid #E44C4C;
+    color: #E44C4C;
+    width: auto;
+    padding: 0 1.5rem;
+
+    &:hover {
+        color: white;
+        background: #E44C4C;
+        opacity: 0.5;
+    }
+}
