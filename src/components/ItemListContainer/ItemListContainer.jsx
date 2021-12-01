@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Products from '../../Products.json';
 import { ItemList } from '../ItemListContainer/ItemList/ItemList';
+import { Loader } from '../Loader/Loader';
 
 export const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
@@ -13,7 +14,7 @@ export const ItemListContainer = () => {
         } else {
           reject('No se encontraron productos.');
         }
-      }, 1000);
+      }, 2000);
     });
 
   useEffect(() => {
@@ -28,7 +29,7 @@ export const ItemListContainer = () => {
         <h1>¡Bienvenido a la tienda de Raise México!</h1>
       </div>
       <div className="item-list-container">
-        <ItemList products={products} />
+        {products ? <ItemList products={products} /> : <Loader />}
       </div>
     </>
   );

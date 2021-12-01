@@ -30,8 +30,13 @@
                     text-decoration: none;
                     padding: 12px 32px;
                     font-weight: 400;
+
+                    &:hover {
+                        color: $green-raise
+                    }
                 }
             }
+
         }
     }
 

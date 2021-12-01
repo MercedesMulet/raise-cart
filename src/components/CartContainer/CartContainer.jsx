@@ -4,18 +4,26 @@ import { Link } from 'react-router-dom';
 
 export const CartContainer = ({ item }) => {
   const { cart, removeItem, emptyCart } = useCart();
+  const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
 
   return (
     <div className="cart-box">
-      <div className="header">
-        <h3 className="heading">Productos en el carrito: {cart.length}</h3>
-        <button onClick={() => emptyCart()} className="empty-cart">
-          <h5 className="action">Vaciar carrito</h5>
-        </button>
-      </div>
+      {totalItems !== 0 && (
+        <div className="header">
+          <h3 className="heading">Productos en el carrito: {totalItems}</h3>
+          <button onClick={() => emptyCart()} className="empty-cart">
+            <h5 className="action">Vaciar carrito</h5>
+          </button>
+        </div>
+      )}
       {cart.length === 0 ? (
         <div className="cart-vacio">
-          <h2>¡Tu carrito está vacío!</h2>
+          <img
+            className="img-vacio"
+            src="https://i.imgur.com/JGfzuhWl.png"
+            alt="Carrito Vacío"
+          />
+          <h2 className="h2-vacio">¡Tu carrito está vacío!</h2>
           <Link to="/">
             <Button>Volver a productos</Button>
           </Link>
@@ -42,16 +50,7 @@ export const CartContainer = ({ item }) => {
                     Precio x unidad: <strong>$ {item.precio}</strong>
                   </div>
                   <div className="quantity">
-                    <label htmlFor="quanqity">Cantidad:</label>
-                    <input
-                      className="quant-number"
-                      type="number"
-                      id="quantity"
-                      name="quantity"
-                      placeholder={item.quantity}
-                      max={item.stock}
-                      min="1"
-                    />
+                    Cantidad: <strong>{item.quantity}</strong>
                   </div>
                   <div className="price-total">
                     Total:{' '}

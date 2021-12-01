@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { ItemDetail } from './ItemDetail/ItemDetail';
 import Products from '../../Products.json';
+import Loader from 'react-spinners/ClipLoader';
 
 export const ItemDetailContainer = () => {
   const [item, setItem] = useState('');
@@ -15,7 +16,7 @@ export const ItemDetailContainer = () => {
         } else {
           reject('No existen productos que coincidan con su selección.');
         }
-      }, 1000);
+      }, 2000);
     });
 
   useEffect(() => {
@@ -31,9 +32,7 @@ export const ItemDetailContainer = () => {
 
   return (
     <div className="item-detail-container">
-      <div className="item-detail">
-        {item ? <ItemDetail item={item} /> : 'Cargando...'}
-      </div>
+      {item ? <ItemDetail item={item} /> : <Loader size={100} />}
     </div>
   );
 };

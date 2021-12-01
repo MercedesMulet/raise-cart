@@ -1,6 +1,10 @@
 @import './ItemDetail/itemDetail.scss';
 
 .item-detail-container {
-    margin: 5rem auto;
-    width: 80vw;
+    width: 90%;
+    height: 50vh;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
