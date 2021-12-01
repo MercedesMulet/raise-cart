@@ -6,6 +6,8 @@ import Loader from 'react-spinners/ClipLoader';
 
 export const ItemDetailContainer = () => {
   const [item, setItem] = useState('');
+  const [loading, setLoading] = useState(false);
+
   const { referencia } = useParams();
 
   const getItem = (data) =>
@@ -20,12 +22,14 @@ export const ItemDetailContainer = () => {
     });
 
   useEffect(() => {
+    setLoading(true);
     getItem(Products)
       .then((res) => {
         const filterItem = res.filter(
           (product) => product.referencia === referencia
         );
         setItem(filterItem.shift());
+        setLoading(false);
       })
       .catch((err) => console.log(err));
   }, [referencia]);

@@ -5,6 +5,7 @@ import { Loader } from '../Loader/Loader';
 
 export const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const getData = (data) =>
     new Promise((resolve, reject) => {
@@ -18,8 +19,12 @@ export const ItemListContainer = () => {
     });
 
   useEffect(() => {
+    setLoading(true);
     getData(Products)
-      .then((res) => setProducts(res))
+      .then((res) => {
+        setProducts(res);
+        setLoading(false);
+      })
       .catch((err) => console.log(err));
   }, []);
 
