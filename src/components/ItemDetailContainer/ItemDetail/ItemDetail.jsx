@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useCart } from '../../../contexts/cart/CartContext';
 
 export const ItemDetail = ({ item }) => {
-  const { addedItem } = useCart();
+  const { cart, addedItem } = useCart();
 
   const onAdd = (quantityToCart) => {
     if (quantityToCart >= 1) {
@@ -14,6 +14,8 @@ export const ItemDetail = ({ item }) => {
       item.priceTotal = item.precio * item.quantity;
     }
   };
+
+  const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
 
   return (
     <>
@@ -41,12 +43,20 @@ export const ItemDetail = ({ item }) => {
             <div className="cta-detail">
               <h5>Stock: {item.stock} disponibles.</h5>
               <div className="quant">
-                <ItemCount initial={1} stock={item.stock} onAdd={onAdd} />
+                <ItemCount initial={0} stock={item.stock} onAdd={onAdd} />
               </div>
             </div>
-            <Link to="/cart">
-              <Button buttonStyle="btn-primary-outline">Ir al carrito</Button>
-            </Link>
+            {totalItems !== 0 ? (
+              <Link to="/cart">
+                <Button buttonStyle="btn-primary-outline">Ir al carrito</Button>
+              </Link>
+            ) : (
+              <Link to="/cart">
+                <Button buttonStyle="btn-primary-outline">
+                  Terminar compra
+                </Button>
+              </Link>
+            )}
           </div>
         </div>
       )}

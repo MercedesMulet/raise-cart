@@ -10,12 +10,12 @@ export const CartWidget = () => {
 
   return (
     <div className="cart-nav-icon">
-      <Link to="/cart" style={{ textDecoration: 'none', color: 'inherit' }}>
-        <FontAwesomeIcon icon={faShoppingCart} />
-        {totalItems !== 0 && (
+      {totalItems !== 0 && (
+        <Link to="/cart" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <FontAwesomeIcon icon={faShoppingCart} />
           <span className="count-cart-widget">{totalItems}</span>
-        )}
-      </Link>
+        </Link>
+      )}
     </div>
   );
 };
