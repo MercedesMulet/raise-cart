@@ -23,7 +23,7 @@ export const CartContainer = ({ item }) => {
             src="https://i.imgur.com/JGfzuhWl.png"
             alt="Carrito Vacío"
           />
-          <h2 className="h2-vacio">¡Tu carrito está vacío!</h2>
+          <h2 className="h2-vacio">¡Tienes un carrito que llenar!</h2>
           <Link to="/">
             <Button>Volver a productos</Button>
           </Link>
