@@ -34,7 +34,7 @@ export const ItemListContainer = () => {
         <h1>¡Bienvenido a la tienda de Raise México!</h1>
       </div>
       <div className="item-list-container">
-        {products ? <ItemList products={products} /> : <Loader />}
+        {!loading ? <ItemList products={products} /> : <Loader />}
       </div>
     </>
   );

@@ -36,7 +36,7 @@ export const ItemDetailContainer = () => {
 
   return (
     <div className="item-detail-container">
-      {item ? <ItemDetail item={item} /> : <Loader size={100} />}
+      {!loading ? <ItemDetail item={item} /> : <Loader size={100} />}
     </div>
   );
 };
