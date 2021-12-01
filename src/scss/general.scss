@@ -1,7 +1,8 @@
 body {
-    width: 100vw;
+    width: 100%;
     box-sizing: border-box;
     font-family: $main-font;
     background: $bg-color;
     color: $black-raise;
+    overflow-x: hidden;
 }
