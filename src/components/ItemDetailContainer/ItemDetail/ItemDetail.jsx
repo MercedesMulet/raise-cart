@@ -46,15 +46,9 @@ export const ItemDetail = ({ item }) => {
                 <ItemCount initial={0} stock={item.stock} onAdd={onAdd} />
               </div>
             </div>
-            {totalItems !== 0 ? (
+            {totalItems !== 0 && (
               <Link to="/cart">
                 <Button buttonStyle="btn-primary-outline">Ir al carrito</Button>
-              </Link>
-            ) : (
-              <Link to="/cart">
-                <Button buttonStyle="btn-primary-outline">
-                  Terminar compra
-                </Button>
               </Link>
             )}
           </div>
