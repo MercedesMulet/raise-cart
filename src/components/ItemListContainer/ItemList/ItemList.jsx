@@ -6,7 +6,7 @@ export const ItemList = ({ products }) => {
     <div className="item-list">
       {products.length ? (
         products.map((product) => (
-          <Item product={product} key={product.codigoRaise} />
+          <Item product={product} key={product.codigoRaise} categoria={product.categoria}/>
         ))
       ) : (
         <Loader />

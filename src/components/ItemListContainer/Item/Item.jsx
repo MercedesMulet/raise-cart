@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Button } from '../../Button/Button';
 
-export const Item = ({ product }) => {
+export const Item = ({ product, doc }) => {
   return (
     <div className="item">
       <img src={product.img} alt="" />
@@ -14,7 +14,7 @@ export const Item = ({ product }) => {
         </div>
         <span className="item-list-price">${product.precio}</span>
       </div>
-      <Link to={`/item/${product.referencia}`}>
+      <Link to={`/item/${product.id}`}>
         <Button buttonStyle="btn-primary-outline">Ver detalles</Button>
       </Link>
     </div>

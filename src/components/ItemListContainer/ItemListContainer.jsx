@@ -1,32 +1,37 @@
 import { useState, useEffect } from 'react';
-import Products from '../../Products.json';
 import { ItemList } from '../ItemListContainer/ItemList/ItemList';
 import { Loader } from '../Loader/Loader';
+import { getFirestore } from '../../firebase';
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { useParams } from 'react-router';
 
 export const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
-
-  const getData = (data) =>
-    new Promise((resolve, reject) => {
-      setTimeout(() => {
-        if (data) {
-          resolve(data);
-        } else {
-          reject('No se encontraron productos.');
-        }
-      }, 2000);
-    });
+  
+  const { categoriaId } = useParams();
 
   useEffect(() => {
-    setLoading(true);
-    getData(Products)
-      .then((res) => {
-        setProducts(res);
-        setLoading(false);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+    setLoading(true); 
+
+    const db = getFirestore();
+
+    categoriaId !== undefined ? 
+    getDocs(query(collection(db, 'products'), where('categoria', '===', categoriaId)))
+    .then((snapshot) => {
+        setProducts(snapshot.docs.map((doc) =>{
+            return {...doc.data(), id : doc.id}
+        }));
+    })
+    :
+    getDocs(collection(db, 'products'))
+    .then((snapshot) => {
+        setProducts(snapshot.docs.map((doc) => {
+            const newArrayProducts = {...doc.data()};
+            return newArrayProducts;
+        }))
+    })
+	}, [categoriaId]);
 
   return (
     <>

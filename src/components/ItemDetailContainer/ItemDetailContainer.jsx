@@ -1,42 +1,33 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { ItemDetail } from './ItemDetail/ItemDetail';
-import Products from '../../Products.json';
 import Loader from 'react-spinners/ClipLoader';
+import { getFirestore } from '../../firebase';
+import { doc, getDoc } from '@firebase/firestore';
 
 export const ItemDetailContainer = () => {
-  const [item, setItem] = useState('');
+  const [item, setItem] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const { referencia } = useParams();
-
-  const getItem = (data) =>
-    new Promise((resolve, reject) => {
-      setTimeout(() => {
-        if (data) {
-          resolve(data);
-        } else {
-          reject('No existen productos que coincidan con su selección.');
-        }
-      }, 2000);
-    });
+  const { id } = useParams();
 
   useEffect(() => {
     setLoading(true);
-    getItem(Products)
-      .then((res) => {
-        const filterItem = res.filter(
-          (product) => product.referencia === referencia
-        );
-        setItem(filterItem.shift());
+    const db = getFirestore();
+    const anItem = doc(db, 'products', id);
+    getDoc(anItem).then((snapshot) => {
+      console.log(snapshot);
+      if (snapshot.exists()) {
+        setItem({...snapshot.data(), id : id});
         setLoading(false);
-      })
-      .catch((err) => console.log(err));
-  }, [referencia]);
+      }
+    })
+    .catch((err) => console.log(err));
+  }, [id]);
 
   return (
     <div className="item-detail-container">
-      {item && <ItemDetail item={item} />}
+      {item && <ItemDetail key={item.referencia} item={item} />}
       {loading && <Loader size={100} />}
     </div>
   );
