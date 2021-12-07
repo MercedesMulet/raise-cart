@@ -22,8 +22,7 @@
         .header {
             text-align: center;
             h5 {
-                font-size: 2rem;
-                color: $green-raise;
+                font-size: 1.5rem;
                 margin: 0.5rem 0 0.5rem;
             }
             p {
@@ -62,14 +61,24 @@
                     }
                 }
             }
-
-            
         }
 
         .botones {
             display: flex;
             flex-direction: column;
             margin-bottom: 2rem;
+        }
+    }
+
+    .popup-children {
+        text-align: center;
+
+        h2 {
+            font-size: 2rem;
+        }
+
+        p {
+            font-size: 1.2rem;
         }
     }
 }
