@@ -1,10 +1,9 @@
 import { useCart } from '../../contexts/cart/CartContext';
 import { Button } from '../Button/Button';
 import { Link } from 'react-router-dom';
-import { CartFooter } from './CartFooter/CartFooter';
 
 export const CartContainer = ({ openPopUp }) => {
-  const { cart, removeItem, emptyCart } = useCart();
+  const { cart, removeItem, emptyCart, totalCart } = useCart();
 
   const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
 
@@ -56,7 +55,7 @@ export const CartContainer = ({ openPopUp }) => {
                       Cantidad: <strong>{item.quantity}</strong>
                     </div>
                     <div className="price-total">
-                      Total:{' '}
+                      Subtotal:{' '}
                       <span className="total-numb">$ {item.priceTotal}</span>
                     </div>
                     <Button
@@ -73,10 +72,17 @@ export const CartContainer = ({ openPopUp }) => {
         )}
         {totalItems !== 0 && (
           <div className="cart-footer">
-            <CartFooter onClick={() => openPopUp()} />
-          </div>
+          <p className="total">Total = $ {totalCart}</p>
+          <Link to="/">
+            <Button buttonStyle="btn-primary-outline">Continuar comprando</Button>
+          </Link>
+          <Link to="/checkout">
+            <Button onClick={() => openPopUp()}>Confirmar pedido</Button>
+          </Link>
+        </div>
         )}
       </div>
+      
     </>
   );
 };

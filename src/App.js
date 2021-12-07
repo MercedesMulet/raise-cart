@@ -5,7 +5,7 @@ import { ItemListContainer } from './components/ItemListContainer/ItemListContai
 import { ItemDetailContainer } from './components/ItemDetailContainer/ItemDetailContainer';
 import { CartProvider } from './contexts/cart/CartContext';
 import { CartContainer } from './components/CartContainer/CartContainer';
-import { Checkout } from './components/CartContainer/Checkout/Checkout';
+import { Checkout } from './components/Checkout/Checkout';
 
 function App() {
   return (

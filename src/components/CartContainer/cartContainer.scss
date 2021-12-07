@@ -1,6 +1,3 @@
-@import './CartFooter/cartFooter.scss'; 
-@import './Checkout/checkout.scss';
-
 .cart-box {
     display: flex;
     flex-direction: column;
@@ -107,8 +104,20 @@
         
         }
     }
+}
 
+.cart-footer {
+    width: 95%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 1rem;
 
-
+    .total {
+        margin-right: 2rem;
+        font-size: 21px;
+        font-weight: 700;
+    }
 }
 
