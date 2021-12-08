@@ -34,6 +34,8 @@ export const Checkout = () => {
     const date = new Date();
     const orderDate = date.toLocaleDateString();
 
+    const db = getFirestore();
+    const ordersCollection = collection(db, 'orders');
     const order = {
       cliente: buyer,
       items: cart,
@@ -41,15 +43,23 @@ export const Checkout = () => {
       date: orderDate,
     };
 
-    const db = getFirestore();
-    const ordersCollection = collection(db, 'orders');
-
     addDoc(ordersCollection, order).then(({ id }) => {
       setOrderId(id);
     });
   };
 
   const finishOrder = () => {
+    if (
+      buyer.email.length < 6 ||
+      buyer.name.length < 2 ||
+      buyer.phone.length < 10
+    ) {
+      alert('Por favor, completa todos los campos.');
+      return;
+    } else if (cart.length === 0) {
+      alert('Vuelve a la sección de productos para continuar comprando.');
+      return;
+    }
     createOrder();
     emptyCart();
     document.getElementById('form').reset();
