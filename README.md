@@ -9,7 +9,7 @@
 
 ## Screenshot
 
-![App Running](https://github.com/MercedesMulet/raise-cart/blob/main/screenshots/Animation.gif)
+
 
 ## Built with
 
