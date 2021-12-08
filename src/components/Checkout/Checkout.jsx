@@ -3,86 +3,122 @@ import { Button } from '../Button/Button';
 import { Link } from 'react-router-dom';
 import { Popup } from '../Popup/Popup';
 import { useState } from 'react';
-import { getFirestore } from '../../firebase'
+import { getFirestore } from '../../firebase';
 import { collection, addDoc } from 'firebase/firestore';
+import { Form } from './Form/Form';
 
 export const Checkout = () => {
-  const [orderFinished, setOrderFinished] = useState(false);
-  const [orderId, setOrderId] = useState(null);
-  const [buyer, setBuyer] = useState({
-    name: '',
-    email: '',
-    phone: ''
-  });
-
   const { cart, emptyCart, totalCart } = useCart();
 
-  const date = new Date();
-  const orderDate = date.toLocaleDateString();
-  
-  const db = getFirestore();
-  const ordersCollection = collection(db, 'orders');
+  const [orderFinished, setOrderFinished] = useState(false);
+  const [orderId, setOrderId] = useState(null);
 
-  const createOrder = async (e) => {
-    try {
-      e.preventDefault();
-      const order = {
-        buyer,
-        items : cart,
-        total : totalCart,
-        date : orderDate
-      };
-      addDoc(ordersCollection, order).then( ({id}) => setOrderId(id));
-      /* const results = await ordersCollection.add(order); */
-      setBuyer({
-        name: '',
-        email: '',
-        phone: ''
-      });
-    } catch (err) {
-      console.log(err);
-    }
-  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
+  const [buyer, setBuyer] = useState({
+    name: '',
+    phone: 0,
+    email: '',
+  });
+
+  const setData = (e) => {
+    setBuyer({
+      ...buyer,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const createOrder = () => {
+    const date = new Date();
+    const orderDate = date.toLocaleDateString();
+
+    const order = {
+      cliente: buyer,
+      items: cart,
+      total: totalCart,
+      date: orderDate,
+    };
+
+    const db = getFirestore();
+    const ordersCollection = collection(db, 'orders');
+
+    addDoc(ordersCollection, order).then(({ id }) => {
+      setOrderId(id);
+    });
+  };
 
   const finishOrder = () => {
-    emptyCart();
-    setOrderFinished(true);
     createOrder();
+    emptyCart();
+    document.getElementById('form').reset();
+    setOrderFinished(true);
   };
 
   return (
     <div className="checkout">
       <div className="checkout-content">
-        <div className="header">
-          <h5>¡Estás a un paso de terminar!</h5>
-        </div>
-        <div className="formSection" onSubmit={createOrder}>
-        <div className="form">
-          <p>Por favor, completa tus datos para generar la orden:</p>
-          <div className="field">
-            <label htmlFor="nombre">Nombre:</label>
-            <input type="text" name="nombre" id="nombre" required />
+        <form
+          id="form"
+          action=""
+          method="post"
+          onSubmit={handleSubmit}
+          className="form"
+        >
+          <div className="fields">
+            <h5>¡Estás a un paso de terminar!</h5>
+            <p>Por favor, completa tus datos para generar la orden:</p>
+            <div className="field">
+              <label htmlFor="nombre">Nombre:</label>
+              <Form
+                setBuyer={setBuyer}
+                type="text"
+                name="name"
+                buyer={buyer}
+                onChange={setData}
+              />
+            </div>
+            <div className="field">
+              <label htmlFor="email">Correo electrónico:</label>
+              <Form
+                setBuyer={setBuyer}
+                type="email"
+                name="email"
+                buyer={buyer}
+                onChange={setData}
+              />
+            </div>
+            <div className="field">
+              <label htmlFor="phone">Teléfono celular:</label>
+              <Form
+                setBuyer={setBuyer}
+                type="phone"
+                name="phone"
+                buyer={buyer}
+                onChange={setData}
+              />
+            </div>
           </div>
-          <div className="field">
-            <label htmlFor="nombre">Email:</label>
-            <input type="email" name="email" id="email" required />
+          <div className="botones">
+            <button
+              type="submit"
+              onClick={() => finishOrder()}
+              className="btn-submit"
+            >
+              Finalizar pedido
+            </button>
+            <Link to="/cart">
+              <Button buttonStyle="btn-primary-outline">Volver</Button>
+            </Link>
           </div>
-          <div className="field">
-            <label htmlFor="nombre">Teléfono celular:</label>
-            <input type="phone" name="celular" id="celular" required />
-          </div>
-        </div>
-        <div className="botones">
-          <Button type="submit" value="submit" handleClick={() => finishOrder()}>Finalizar pedido</Button>
-          <Link to="/cart">
-            <Button buttonStyle="btn-primary-outline">Volver</Button>
-          </Link>
-        </div>
-        </div>
+        </form>
         <Popup trigger={orderFinished} setTrigger={setOrderFinished}>
           <div className="popup-children">
             <h2>¡Gracias por tu compra!</h2>
-            <h3>Tu número de orden es: <strong>{orderId}</strong></h3>
+            <h3>
+              Tu número de orden es: <strong>{orderId}</strong>
+            </h3>
             <p>Enseguida nos pondremos en contacto contigo.</p>
           </div>
         </Popup>

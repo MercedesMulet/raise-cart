@@ -72,17 +72,18 @@ export const CartContainer = ({ openPopUp }) => {
         )}
         {totalItems !== 0 && (
           <div className="cart-footer">
-          <p className="total">Total = $ {totalCart}</p>
-          <Link to="/">
-            <Button buttonStyle="btn-primary-outline">Continuar comprando</Button>
-          </Link>
-          <Link to="/checkout">
-            <Button onClick={() => openPopUp()}>Confirmar pedido</Button>
-          </Link>
-        </div>
+            <p className="total">Total = $ {totalCart}</p>
+            <Link to="/">
+              <Button buttonStyle="btn-primary-outline">
+                Continuar comprando
+              </Button>
+            </Link>
+            <Link to="/checkout">
+              <Button onClick={() => openPopUp()}>Confirmar pedido</Button>
+            </Link>
+          </div>
         )}
       </div>
-      
     </>
   );
 };
