@@ -16,7 +16,6 @@ export const ItemDetailContainer = () => {
     const db = getFirestore();
     const anItem = doc(db, 'products', id);
     getDoc(anItem).then((snapshot) => {
-      console.log(snapshot);
       if (snapshot.exists()) {
         setItem({...snapshot.data(), id : id});
         setLoading(false);
