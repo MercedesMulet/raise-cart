@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { CartWidget } from '../NavBar/CartWidget/CartWidget';
 
-
 export const NavLinks = (props) => {
   return (
     <ul className="nav-ul">

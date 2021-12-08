@@ -13,24 +13,20 @@ export const ItemListContainer = () => {
 
   useEffect(() => {
     setLoading(true); 
-
     const db = getFirestore();
-
-    categoriaId !== undefined ? 
-    getDocs(query(collection(db, 'products'), where('categoria', '===', categoriaId)))
-    .then((snapshot) => {
-        setProducts(snapshot.docs.map((doc) =>{
-            return {...doc.data(), id : doc.id}
-        }));
-    })
-    :
-    getDocs(collection(db, 'products'))
-    .then((snapshot) => {
-        setProducts(snapshot.docs.map((doc) => {
-            const newArrayProducts = {...doc.data()};
-            return newArrayProducts;
-        }))
-    })
+		async function getItems(db) {
+			const itemsCol = categoriaId
+				? query(
+						collection(db, "products"),
+						where("categoria", "==", categoriaId)
+				  )
+				: collection(db, "products");
+			const snapshot = await getDocs(itemsCol);
+			const itemsList = snapshot.docs.map((doc) => doc.data());
+      setLoading(false); 
+			return setProducts(itemsList);
+		}
+		getItems(db);
 	}, [categoriaId]);
 
   return (
@@ -39,7 +35,7 @@ export const ItemListContainer = () => {
         <h1>¡Bienvenido a la tienda de Raise México!</h1>
       </div>
       <div className="item-list-container">
-        {products && <ItemList products={products} />}
+        {products && <ItemList products={products} categoria={categoriaId}/>}
         {loading && <Loader />}
       </div>
     </>
